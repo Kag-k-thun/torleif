@@ -2,4 +2,5 @@
 .build
 __libs
 __doc        
-/torleif/test_torleif
+/torleif
+/test_torleif

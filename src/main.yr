@@ -1,6 +1,9 @@
 mod main;
+
+import chess::board;
+
 import std::io;
     
 fn main () {
-    println ("Hello World !");
+    let _ = Board::new();
 }

@@ -1,0 +1,9 @@
+mod chess::pieces::queen;
+
+import chess::pieces::piece;
+
+pub class Queen over Piece {
+    pub self(){
+        println("Queen");
+    }
+}

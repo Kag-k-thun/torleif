@@ -1,0 +1,15 @@
+mod chess::pieces::piece;
+
+import std::io;
+
+enum: 
+|WHITE = 0u8
+|BLACK = 1u8
+ -> Color;
+
+pub class @abstract Piece {
+    let _color: Color;
+    pub self(color: Color) with _color = color {
+        println("Piece");
+    }
+}

@@ -1,0 +1,8 @@
+mod chess::board;
+import std::io;
+
+pub class @final Board {
+    pub self(){
+        println("Board");
+    }
+}

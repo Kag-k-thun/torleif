@@ -1,0 +1,9 @@
+mod chess::pieces::bishop;
+
+import chess::pieces::piece;
+
+pub class Bishop over Piece {
+    pub self(){
+        println("Bishop");
+    }
+}

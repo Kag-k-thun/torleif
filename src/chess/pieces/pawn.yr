@@ -1,0 +1,10 @@
+mod chess::pieces::pawn;
+
+import chess::pieces::piece;
+
+pub class Pawn over Piece {
+    pub self(){
+        println("Pawn");
+    }
+}
+
