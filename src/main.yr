@@ -1,0 +1,6 @@
+mod main;
+import std::io;
+    
+fn main () {
+    println ("Hello World !");
+}

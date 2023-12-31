@@ -1,0 +1,14 @@
+name = "torleif"
+version = "0.1.0"
+description = "A minimal Ymir chess game"
+type = "executable"
+libraries = []
+author = "paul.cadorel <guyleclair18@gmail.com>"
+license = "proprietary"
+
+[dependencies]
+
+[commands]
+
+[registry]
+git = "git@github.com:Kag-k-thun/torleif.git"

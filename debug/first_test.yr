@@ -1,0 +1,9 @@
+mod first_test;
+import std::io;
+    
+__test {
+    println ("Example of first test"s8);
+                
+    // To make a test fail, throw an exception
+    // for example, assert (false);
+}
