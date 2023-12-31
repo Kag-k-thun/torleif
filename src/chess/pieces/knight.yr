@@ -1,9 +1,11 @@
 mod chess::pieces::knight;
 
+import std::io;
 import chess::pieces::piece;
 
 pub class Knight over Piece {
-    pub self(){
+
+    pub self (color : Color) with super (color) {
         println("Knight");
     }
 }

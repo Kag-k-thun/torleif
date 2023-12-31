@@ -1,10 +1,11 @@
-mod chess::pieces::bishop;
+mod chess::pieces::rook;
 
 import std::io;
 import chess::pieces::piece;
 
-pub class Bishop over Piece {
+pub class Rook over Piece {
+
     pub self(color : Color) with super (color) {
-        println("Bishop");
+        println("Rock");
     }
 }

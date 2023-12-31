@@ -1,9 +1,10 @@
 mod chess::pieces::pawn;
 
+import std::io;
 import chess::pieces::piece;
 
 pub class Pawn over Piece {
-    pub self(){
+    pub self (color : Color) with super (color) {
         println("Pawn");
     }
 }

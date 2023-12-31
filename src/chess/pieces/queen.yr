@@ -1,9 +1,10 @@
 mod chess::pieces::queen;
 
+import std::io;
 import chess::pieces::piece;
 
 pub class Queen over Piece {
-    pub self(){
+    pub self (color : Color) with super (color) {
         println("Queen");
     }
 }

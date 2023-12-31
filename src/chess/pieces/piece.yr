@@ -2,9 +2,9 @@ mod chess::pieces::piece;
 
 import std::io;
 
-enum: 
-|WHITE = 0u8
-|BLACK = 1u8
+pub enum
+| WHITE = 0u8
+| BLACK = 1u8
  -> Color;
 
 pub class @abstract Piece {

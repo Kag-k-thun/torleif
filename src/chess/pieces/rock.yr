@@ -1,9 +1,0 @@
-mod chess::pieces::rock;
-
-import chess::pieces::piece;
-
-pub class Rock over Piece {
-    pub self(){
-        println("Rock");
-    }
-}

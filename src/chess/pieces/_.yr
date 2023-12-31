@@ -3,7 +3,7 @@ mod chess::pieces::_;
 pub import chess::pieces::knight;
 pub import chess::pieces::pawn;
 pub import chess::pieces::bishop;
-pub import chess::pieces::rock;
+pub import chess::pieces::rook;
 pub import chess::pieces::king;
 pub import chess::pieces::queen;
 
