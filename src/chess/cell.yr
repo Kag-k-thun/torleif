@@ -1,0 +1,44 @@
+mod chess::cell;
+
+import chess::pieces::piece;
+
+pub enum
+| A = 0
+| B = 1
+| C = 2
+| D = 3
+| E = 4
+| F = 5
+| G = 6
+| H = 7
+| NONE = 8
+ -> Letter;
+
+pub class @final Cell {
+
+    let _piece : (&Piece)?;
+
+    let _locX : Letter;
+
+    let _locY : u8;
+
+    pub self (locX : Letter, locY : u8, piece : (&Piece)?)
+        with _locX = locX
+        , _locY = locY
+        , _piece = piece
+    {}
+
+    pub self ()
+        with _locX = Letter::NONE
+        , _locY = 0u8
+        , _piece = ((&Piece)?)::__err__
+    {}
+
+    /**
+     * @returns: the pieces in the cell
+     * */
+    pub fn getPiece (self)-> (&Piece)? {
+        self._piece
+    }
+
+}

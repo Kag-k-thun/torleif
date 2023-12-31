@@ -1,0 +1,54 @@
+mod chess::movement;
+
+import std::io;
+import chess::cell;
+
+/**
+ * Exception thrown when a movement is invalid
+ * */
+pub class InvalidMovement over Exception {
+
+    pub self () {}
+
+    impl stream::Streamable {
+
+        pub over toStream (self, dmut stream : &StringStream) {
+            self::super.toStream (alias stream);
+        }
+    }
+
+}
+
+/**
+ * Description of a movement
+ * */
+pub struct
+| pieceName : c8
+| locX : Letter
+| locY : u8
+| special : SpecialMovement?
+ -> Movement;
+
+pub enum
+| ROCK_Q = 1 // rock queen side
+| ROCK_S = 2 // small rock
+ -> SpecialMovement;
+
+
+/**
+ * Transform a string into a movement
+ * */
+pub fn createMovement (value : [c8])-> Movement {
+    // TODO Transform a string into a valid movement
+    value;
+    __pragma!panic ();
+}
+
+/**
+ * Transform a movement into a printable string
+ * */
+pub fn formatMovement (mv : Movement)-> [c8] {
+    // TODO format a movement into a printable string
+    mv;
+    __pragma!panic ();
+}

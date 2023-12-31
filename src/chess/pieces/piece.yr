@@ -8,8 +8,11 @@ pub enum
  -> Color;
 
 pub class @abstract Piece {
+
     let _color: Color;
-    pub self(color: Color) with _color = color {
+
+    pub self (color: Color) with _color = color {
         println("Piece");
     }
+
 }

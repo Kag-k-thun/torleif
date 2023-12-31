@@ -1,5 +1,6 @@
 mod chess::pieces::_;
 
+pub import chess::pieces::piece;
 pub import chess::pieces::knight;
 pub import chess::pieces::pawn;
 pub import chess::pieces::bishop;

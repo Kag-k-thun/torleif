@@ -1,8 +1,59 @@
 mod chess::board;
+
 import std::io;
 
+import chess::pieces::_;
+import chess::cell;
+import chess::movement;
+
 pub class @final Board {
-    pub self(){
-        println("Board");
+
+    let dmut _pieces : [[&Cell ; 8] ; 8] = [[Cell::new () ; 8] ; 8];
+
+    pub self () {
+        self:.initBoard ();
     }
+
+
+    /**
+     * Move a piece on the board
+     * @returns: a new board with pieces moved to the correct positions
+     * @throws:
+     *    - &InvalidMovement: if the movement does not respect the rules
+     * */
+    pub fn movePiece (self, mv : Movement)-> &Board
+        throws &InvalidMovement
+    {
+        // TODO
+        mv;
+        throw InvalidMovement::new ();
+    }
+
+
+    /**
+     * Draw the board to stdout
+     * */
+    pub fn draw (self) {
+        for col in 0us .. 8us for row in 0us .. 8us match self._pieces [col][row].getPiece () {
+            Ok (piece : &Piece) => {
+                // TODO draw piece
+                piece;
+                __pragma!panic ();
+            }
+            _ => { // else empty
+                print (' 'c8);
+            }
+        }
+    }
+
+
+    /**
+     * Fill the board game with initial positions
+     * */
+    fn initBoard (mut self) {
+        self._pieces [0][7] = Cell::new (Letter::A, 1u8, Rook::new (Color::WHITE)?);
+        // TODO continue to fill the board
+        __pragma!panic ();
+    }
+
 }
