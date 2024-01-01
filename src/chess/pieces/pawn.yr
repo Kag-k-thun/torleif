@@ -4,8 +4,13 @@ import std::io;
 import chess::pieces::piece;
 
 pub class Pawn over Piece {
-    pub self (color : Color) with super (color) {
-        println("Pawn");
+    pub self (color : Color) with super (color) {}
+    pub over draw(self) {
+        match (self._color) {
+            Color::WHITE => print("\u{2659}");
+            Color::BLACK => print("\u{265F}");
+            _ => {};
+        }
     }
 }
 

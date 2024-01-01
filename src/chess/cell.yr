@@ -1,5 +1,8 @@
 mod chess::cell;
 
+import std::io;
+import std::char;
+
 import chess::pieces::piece;
 
 pub enum
@@ -14,9 +17,38 @@ pub enum
 | NONE = 8
  -> Letter;
 
+pub fn getLetterChar(val: c8) -> Letter {
+    match(val.toUpper()) {
+        'A'c8 => Letter::A
+            'B'c8 => Letter::B
+            'C'c8 => Letter::C
+            'D'c8 => Letter::D
+            'E'c8 => Letter::E
+            'F'c8 => Letter::F
+            'G'c8 => Letter::G
+            'H'c8 => Letter::H
+            _ => Letter::NONE
+            
+    }
+}
+
+pub fn getLetterNb(val: u8) -> Letter {
+    match(val) {
+        0u8 => Letter::A
+            1u8 => Letter::B
+            2u8 => Letter::C
+            3u8 => Letter::D
+            4u8 => Letter::E
+            5u8 => Letter::F
+            6u8 => Letter::G
+            7u8 => Letter::H
+            _ => Letter::NONE
+    }
+}
+
 pub class @final Cell {
 
-    let _piece : (&Piece)?;
+    let  _piece : (&Piece)?;
 
     let _locX : Letter;
 
@@ -41,4 +73,13 @@ pub class @final Cell {
         self._piece
     }
 
+
+    impl Streamable {
+        pub over toStream (self, dmut stream : &StringStream) {
+            stream:.write (self._locX, " ", self._locY, " ");
+            match self._piece {
+                Ok (x: _) => { stream:.write (x); }
+            }
+        }
+    }
 }
