@@ -8,14 +8,7 @@ import chess::movement;
 
 pub class @final Board {
 
-    let dmut _pieces : [[&Cell]] = [[Cell::new () ; new 8],
-                                    [Cell::new () ; new 8],
-                                    [Cell::new () ; new 8],
-                                    [Cell::new () ; new 8],
-                                    [Cell::new () ; new 8],
-                                    [Cell::new () ; new 8],
-                                    [Cell::new () ; new 8],
-                                    [Cell::new () ; new 8]];
+    let dmut _pieces : [&Cell] = [Cell::new () ; new 64];
 
     pub self () {
         self:.initBoard ();
@@ -31,7 +24,7 @@ pub class @final Board {
     pub fn movePiece (self, mv : Movement)-> &Board
         throws &InvalidMovement
     {
-        // TODO
+        //        if  (isMovementValid(mv) && )
         mv;
         throw InvalidMovement::new ();
     }
@@ -44,7 +37,7 @@ pub class @final Board {
         for row in 0u8 .. 8u8 {
             println();
             for col in 0u8 .. 8u8 {
-                match self._pieces [col][row].getPiece () {
+                match self._pieces [row*8u8 + col].getPiece () {
                     Ok (piece : &Piece) => {
                         piece.draw();
                     }
@@ -64,14 +57,14 @@ pub class @final Board {
         // Fill empty cells and pawns
         for i in 0u8 .. 8u8 for j in 0u8 .. 8u8 {
             if (j == 6u8 || j == 1u8) {
-                self._pieces[i][j] = Cell::new (getLetterNb(i),
+                self._pieces[i+j*8u8] = Cell::new (nbToLetter(i),
                                                 j-7u8+1u8,
                                                 Pawn::new (
                                                     if j==6u8 Color::WHITE else Color::BLACK
                                                     )?
                     );
             } else {
-                self._pieces[i][j] = Cell::new (getLetterNb(i),
+                self._pieces[i+j*8u8] = Cell::new (nbToLetter(i),
                                                 j-7u8+1u8,
                                                 ((&Piece)?)::__err__);
             }            
@@ -82,32 +75,32 @@ pub class @final Board {
             match(i) {
                 0u8 | 7u8 => {
                     // Rook
-                    self._pieces[i][j] = Cell::new (getLetterNb(i),
+                    self._pieces[i+j*8u8] = Cell::new (nbToLetter(i),
                                                     j-7u8+1u8,
                                                     Rook::new (if j==0u8 Color::BLACK else Color::WHITE)?);
 
                 }
                 1u8 | 6u8 => {
                     // Knight
-                    self._pieces[i][j] = Cell::new (getLetterNb(i),
+                    self._pieces[i+j*8u8] = Cell::new (nbToLetter(i),
                                                     j-7u8+1u8,
                                                     Knight::new (if j==0u8 Color::BLACK else Color::WHITE)?);
                 }
                 2u8 | 5u8 => {
                     // Bishop
-                    self._pieces[i][j] = Cell::new (getLetterNb(i),
+                    self._pieces[i+j*8u8] = Cell::new (nbToLetter(i),
                                                     j-7u8+1u8,
                                                     Bishop::new (if j==0u8 Color::BLACK else Color::WHITE)?);
                 }
                 3u8 => {
                     // Queen
-                    self._pieces[i][j] = Cell::new (getLetterNb(i),
+                    self._pieces[i+j*8u8] = Cell::new (nbToLetter(i),
                                                     j-7u8+1u8,
                                                     Queen::new (if j==0u8 Color::BLACK else Color::WHITE)?);
                 }
                 4u8 => {
                     // King
-                    self._pieces[i][j] = Cell::new (getLetterNb(i),
+                    self._pieces[i+j*8u8] = Cell::new (nbToLetter(i),
                                                     j-7u8+1u8,
                                                     King::new (if j==0u8 Color::BLACK else Color::WHITE)?);
                 }
